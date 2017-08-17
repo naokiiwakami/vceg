@@ -1,7 +1,7 @@
 # vceg
 Voltage Controlled Envelope Generator
 
-This is a prototype of voltage controlled envelope generator that is useful for driving analog synthesizers.
+This is a prototype of voltage controlled envelope generator that is useful for controlling analog synthesizers.
 
 ### Platform
 
