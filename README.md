@@ -5,15 +5,15 @@ This is a prototype of voltage controlled envelope generator that is useful for 
 
 ### Platform
 
-The implementation is targetting AVR ATMega328 micro processor.  Below is the schematics.  Input ports A, D, S, and R accepts voltages ranging 0V through 5V.  Output is also ranges from 0V to 5V.
+The implementation is done onto AVR ATMega328 micro processor. The schematic is shown as below. Input ports A, D, S, and R accepts voltages ranging 0V through 5V.  Output range is also from 0V to 5V.
 
 ![alt tag](vc_trial2_schematic.png)
 
 ### Design
-The program is written in C.  Envelope generator curve is calculated from a lookup table that simulates decreasing exponential curve with 256 16-bit values.
+The program is written in C.  Envelope generator curve is calculated from a lookup table that samples decreasing exponential curve at 256 points with 16-bit values.
 
-Phase and frequency correct 10-bit PWM is used for generating analog output.  I’ve tried all types of PWM that AVR supports, that are fast PWM, phase correct PWM, and phase and frequency correct PWM.  Phase and frequency correct PWM gave the best sound quality.  PWM threshold that determines output level is updated by every PWM cycle, triggered by the Timer overflow interrupt handler.
+Phase and frequency correct 10-bit PWM is used for generating analog output. I’ve tried all types of PWM supported by the processor, which are fast PWM, phase correct PWM, and phase and frequency correct PWM.  Phase and frequency correct PWM gave the best sound quality. PWM threshold that determines output level is updated at the end of every PWM cycle, triggered by the Timer overflow interrupt.
 
-ADC is invoked every 10msec approximately.  Since the micro processor is only capable of reading one ADC pin at a time, ADC pins are switched and voltages at A, D, S, and R inputs are read in round robin manner.
+AD conversion is invoked every 10 milliseconds (approximately). The processor is capable of reading only one ADC pin at a time, thus the processor iterates reading pins over A, D, S, and R.
 
-The voltages at A, D, and R inputs are mapped to transient times exponentially for natural tweak feeling.  The exponential table for envelope curve is reused for this mapping here.
+The voltages at A, D, and R pins are converted to time values exponentially. It gives natual feeling in modifying a time value.  The exponential table for envelope curve is reused for the conversion.
