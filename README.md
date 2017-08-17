@@ -10,7 +10,7 @@ The implementation is done onto AVR ATMega328 micro processor. The schematic is 
 ![alt tag](vc_trial2_schematic.png)
 
 ### Design
-The program is written in C.  The output curve is calculated using a lookup table that samples a decreasing exponential curve at 256 points by 16-bit integers.
+The program is written in C.  The output levels changes exponentially. They are calculated using a lookup table that samples a decreasing exponential function at 256 points by 16-bit integers.
 
 Phase and frequency correct 10-bit PWM is used for generating analog output. I’ve tried all types of PWM supported by the processor, which are fast PWM, phase correct PWM, and phase and frequency correct PWM.  Phase and frequency correct PWM gave the best sound quality. PWM threshold that determines output level is updated at the end of every PWM cycle, triggered by the Timer overflow interrupt.
 
