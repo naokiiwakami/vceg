@@ -17,7 +17,7 @@ Phase and frequency correct 10-bit PWM is used for generating analog output. Iâ€
 AD conversion is invoked about every 10 milliseconds in order to read control voltages. Control Voltage parameters are:
 
 - A: Attack Time
-- D: ecay Time
+- D: Decay Time
 - S: Sustain Level
 - R: Release Time
 
