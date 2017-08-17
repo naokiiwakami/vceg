@@ -14,6 +14,13 @@ The program is written in C.  The output levels changes exponentially. They are 
 
 Phase and frequency correct 10-bit PWM is used for generating analog output. I’ve tried all types of PWM supported by the processor, which are fast PWM, phase correct PWM, and phase and frequency correct PWM.  Phase and frequency correct PWM gave the best sound quality. PWM threshold that determines output level is updated at the end of every PWM cycle, triggered by the Timer overflow interrupt.
 
-AD conversion is invoked every 10 milliseconds (approximately). The processor is capable of reading only one ADC pin at a time, thus the processor iterates reading pins over A, D, S, and R.
+AD conversion is invoked about every 10 milliseconds in order to read control voltages. Control Voltage parameters are:
+
+- A: Attack Time
+- D: ecay Time
+- S: Sustain Level
+- R: Release Time
+
+The processor iterates four ADC input pins for A, D, S, and R, since it is capable of reading only one ADC pin at a time.
 
 The voltages at A, D, and R pins are converted to time values exponentially. It gives natual feeling in modifying a time value.  The exponential table for envelope curve is reused for the conversion.
