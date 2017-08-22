@@ -5,7 +5,7 @@ This is a prototype of voltage controlled envelope generator that is useful for 
 
 ### Platform
 
-The implementation is done onto AVR ATMega328 micro processor. The schematic is shown as below. Input ports A, D, S, and R accepts voltages ranging 0V through 5V.  Output range is also from 0V to 5V.
+The implementation is done onto AVR ATMega328 micro processor. The schematic is shown as below. Input ports A, D, S, and R accept voltages ranging 0V through 5V.  Output range is also from 0V to 5V.
 
 ![alt tag](vc_trial2_schematic.png)
 
