@@ -1,3 +1,6 @@
+/*
+ * Copyright 2015-2017 Naoki Iwakami
+ */
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
